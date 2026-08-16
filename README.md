@@ -46,6 +46,18 @@ The app uses client-side routing, so the host must rewrite unknown paths to
 Serve `dist/assets/*` with `cache-control: public, max-age=31536000, immutable` —
 those filenames are content-hashed.
 
+### Set the domain
+
+Link previews need absolute URLs, so set `VITE_SITE_URL` in the host's
+environment to the live origin (no trailing slash):
+
+```
+VITE_SITE_URL=https://your-domain.com.au
+```
+
+`pnpm build` warns if it is unset, and previews will not render when the site is
+shared until it is.
+
 ## Documentation
 
 | Doc                                                            | For                                   |

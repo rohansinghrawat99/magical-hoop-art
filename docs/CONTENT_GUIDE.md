@@ -190,6 +190,34 @@ behind.
 | `constants/product.ts`    | Hoop sizes, spec rows, price notes                                                   |
 | `constants/navigation.ts` | URL shapes and header links                                                          |
 
+## The link preview
+
+`public/og-image.jpg` is the card shown when the site's URL is shared on
+WhatsApp, Facebook, Instagram or iMessage. It is a 1200 × 630 capture of the
+homepage hero.
+
+Two things keep it working:
+
+- **`VITE_SITE_URL`** must be set to the live domain in the deployment
+  environment. Open Graph requires absolute URLs, so without it the preview
+  points at a placeholder and no image appears. `pnpm build` warns when it is
+  missing.
+- **The image must stay 1200 × 630.** A test checks the file exists, matches the
+  dimensions declared in `index.html`, and is small enough for crawlers.
+
+To refresh it after changing the hero, screenshot the homepage at 1440 × 754 and
+resize to 1200 × 630:
+
+```bash
+pnpm dev
+# capture http://localhost:5173 at 1440x754, then:
+# sharp(capture).resize(1200, 630).jpeg({ quality: 88 }).toFile('public/og-image.jpg')
+```
+
+Changing the logo means regenerating the favicons too — they are
+`public/favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png` and
+`icon-512.png`, all square crops of the same source.
+
 ## Contact details
 
 Both live in [`src/constants/site.ts`](../src/constants/site.ts) and are set:

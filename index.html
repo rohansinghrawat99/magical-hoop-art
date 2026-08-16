@@ -17,12 +17,36 @@
       content="Hand-embroidered hoop art for the moments you want to keep — anniversaries, first names, calendar dates. Made to order and shipped Australia-wide."
     />
 
+    <!-- Link preview. %SITE_URL% is substituted at build time from
+         VITE_SITE_URL — see vite.config.ts. Open Graph requires absolute URLs,
+         so a relative path here would leave most crawlers with no image. -->
+    <link rel="canonical" href="%SITE_URL%/" />
+
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Magical Hoop Art" />
+    <meta property="og:site_name" content="Magical Hoop Art" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="Magical Hoop Art — Stories stitched into a circle" />
     <meta
       property="og:description"
-      content="Stories stitched into a circle. Hand-embroidered hoop art, made to order and shipped Australia-wide."
+      content="Hand-embroidered hoop art, made to order and shipped Australia-wide. Wedding and calendar hoops, names, photo frames and more."
     />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Magical Hoop Art — a hand-embroidered hoop with a floral wreath around the words ‘magical hoopart’."
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Magical Hoop Art — Stories stitched into a circle" />
+    <meta
+      name="twitter:description"
+      content="Hand-embroidered hoop art, made to order and shipped Australia-wide."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
