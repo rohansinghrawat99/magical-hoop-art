@@ -1,0 +1,4 @@
+# Client-side routing: serve index.html for any unmatched path so deep links
+# like /collections/wedding/blue-lehenga-couple work on a direct visit.
+# Used by Netlify and Cloudflare Pages.
+/*  /index.html  200
