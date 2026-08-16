@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Test output
+coverage
+.vitest
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+*.swp
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*
+!.env.example
+
+# The original Claude Design export, kept locally for pixel diffing only.
+# See docs/DESIGN_SYSTEM.md — not part of the shipped app.
+design-reference
+
+# Unoptimised photo originals. Run `pnpm images:optimize` to emit into
+# src/assets/artworks/. See docs/CONTENT_GUIDE.md.
+assets-src
