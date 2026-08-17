@@ -34,8 +34,8 @@ export const SITE = {
   /** The wordmark is set in two parts; see the Brandmark component. */
   wordmarkTop: 'Magical',
   wordmarkBottom: 'hoop art',
-  tagline: 'Made to order · Shipped Australia-wide · Prices in AUD',
-  taglineShort: 'Made to order · Shipped Australia-wide',
+  tagline: 'Made to order · Shipped world-wide · Prices in AUD',
+  taglineShort: 'Made to order · Shipped world-wide',
   currency: 'AUD',
   makeTime: '7–10 days',
 } as const;
@@ -44,12 +44,12 @@ export const HERO = {
   eyebrow: 'Handmade · Made to order',
   headingLead: 'Stories stitched',
   headingLeadMobile: 'Stories stitched into a',
-  headingScript: 'circle',
+  headingScript: 'frame',
   headingTail: 'into a',
   blurb:
-    'Hand-embroidered hoop art for the moments you want to keep — anniversaries, first names, calendar dates, and the thoughts that are hard to say out loud. Made and shipped Australia-wide.',
+    'Hand-embroidered hoop art for the moments you want to keep — anniversaries, first names, calendar dates, and the thoughts that are hard to say out loud. Made and shipped world-wide.',
   blurbMobile:
-    'Hand-embroidered hoop art for the moments you want to keep. Made and shipped Australia-wide.',
+    'Hand-embroidered hoop art for the moments you want to keep. Made and shipped world-wide.',
   placeholderLabel: 'hero hoop photo',
   placeholderCaption: 'drop image here',
   placeholderDims: '1200 × 1200 · square crop',

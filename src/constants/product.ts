@@ -9,7 +9,7 @@ import type { Spec } from '@/types/content';
 export const STATIC_SPECS: readonly Spec[] = [
   { k: 'Base fabric', v: 'Cotton / satin — your choice' },
   { k: 'Made in', v: '7–10 days' },
-  { k: 'Shipping', v: 'Australia-wide, tracked' },
+  { k: 'Shipping', v: 'World-wide, tracked' },
   { k: 'Personalisation', v: 'Names, dates, colours included' },
 ] as const;
 
