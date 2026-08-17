@@ -12,8 +12,8 @@ export interface ModalProps {
   title: string;
   children: ReactNode;
   /**
-   * `dialog` centres a card on desktop and slides a sheet up on mobile —
-   * the enquiry form. `fullscreen` covers the viewport — the mobile menu.
+   * `dialog` centres a card, on both trees — search and the enquiry form.
+   * `fullscreen` covers the viewport — the mobile menu.
    */
   variant?: 'dialog' | 'fullscreen';
   className?: string;
@@ -83,24 +83,22 @@ export function Modal({
           <>
             <Dialog.Overlay
               className={cn(
-                'fixed inset-0 z-[90] animate-fade-in bg-scrim backdrop-blur-[6px]',
-                isMobile ? 'flex items-end justify-center' : 'flex items-center justify-center p-6',
+                'fixed inset-0 z-[90] flex animate-fade-in items-center justify-center',
+                'bg-scrim backdrop-blur-[6px]',
+                isMobile ? 'p-4' : 'p-6',
               )}
             />
             <Dialog.Content
               onCloseAutoFocus={restoreFocus}
               className={cn(
-                'fixed z-[90] overflow-auto bg-white',
+                'fixed top-1/2 left-1/2 z-[90] -translate-x-1/2 -translate-y-1/2',
+                'animate-rise-in overflow-auto rounded-[22px] border border-line-strong bg-white',
                 isMobile
                   ? [
-                      'inset-x-0 bottom-0 max-h-[92vh] animate-sheet-up rounded-t-[26px]',
-                      'px-5 pt-[22px] pb-[calc(26px+env(safe-area-inset-bottom))]',
+                      'max-h-[calc(100dvh-32px)] w-[calc(100%-32px)]',
+                      'px-5 pt-[22px] pb-[max(22px,env(safe-area-inset-bottom))]',
                     ]
-                  : [
-                      'top-1/2 left-1/2 max-h-[90vh] w-[min(560px,calc(100%-48px))]',
-                      '-translate-x-1/2 -translate-y-1/2 animate-rise-in',
-                      'rounded-[22px] border border-line-strong p-10',
-                    ],
+                  : ['max-h-[90vh] w-[min(560px,calc(100%-48px))] p-10'],
                 className,
               )}
             >
@@ -122,12 +120,5 @@ export function ModalClose({ className, children }: { className?: string; childr
     <Dialog.Close className={className} aria-label="Close">
       {children}
     </Dialog.Close>
-  );
-}
-
-/** The grab handle drawn at the top of the mobile sheet. */
-export function SheetHandle() {
-  return (
-    <div aria-hidden="true" className="mx-auto mb-5 h-1 w-10 rounded bg-[rgb(58_42_47_/_0.18)]" />
   );
 }

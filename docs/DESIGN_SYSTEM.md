@@ -59,8 +59,8 @@ the mobile tree targets a narrow range and the design pinned them.
 
 One easing curve, `--ease-hoop: cubic-bezier(.2,.8,.2,1)`, drives everything.
 
-Six keyframes, ported byte-for-byte: `riseIn`, `fadeIn`, `ringIn`, `sheetUp`,
-`drift`, `fallPetal`.
+Five keyframes, ported byte-for-byte: `riseIn`, `fadeIn`, `ringIn`, `drift`,
+`fallPetal`. The design's sixth, `sheetUp`, went with the mobile bottom sheet.
 
 Desktop hovers **lift** (`-translate-y`); mobile presses **scale down**
 (`active:scale-[.97]`). That split is in the design and is intentional.
@@ -113,6 +113,14 @@ pixel-diff pass:
 - The weave backdrop stays inside the mat behind those photos even though an
   opaque photo hides it: it is what the placeholder state sits on when a piece
   has no photo yet.
+- **Search and the enquiry form are centred dialogs on mobile**, where the
+  design slides them up as bottom sheets. Same card as desktop, 16px from each
+  edge, capped at `100dvh - 32px` so a long result list scrolls inside it. The
+  sheet's grab handle and its `sheetUp` keyframe are gone with it. The mobile
+  menu is untouched — it is still a fullscreen panel.
+- **The mobile header carries the full Search pill**, where the design shows a
+  bare 44×44 ring glyph. Same pill as desktop, with a `min-h-11` floor so the
+  tap target still clears 44px — the desktop padding alone leaves it at 36.
 - **The artwork card's size and price sit under its title**, where the design
   lays them over the foot of the photo behind a white fade. That fade read well
   over the pale weave a hooped photo sat on, and badly over a photograph filling

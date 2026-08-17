@@ -26,7 +26,7 @@ export {
   type RouteButtonProps,
 } from './link-button';
 export { PhotoFrame, type PhotoFrameProps } from './photo-frame';
-export { Modal, ModalClose, SheetHandle, type ModalProps } from './modal';
+export { Modal, ModalClose, type ModalProps } from './modal';
 export { OptionGroup, type OptionGroupProps } from './option-group';
 export { SearchField, type SearchFieldProps } from './search-field';
 export { SectionHeading, type SectionHeadingProps } from './section-heading';

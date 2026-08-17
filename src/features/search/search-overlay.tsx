@@ -18,10 +18,10 @@ import { useSearch } from './use-search';
 /**
  * The catalogue-wide search overlay.
  *
- * Built on the shared `Modal`, so it inherits the focus trap, Escape, scroll
- * lock and the desktop-card / mobile-sheet split rather than reimplementing
- * them. Only the geometry is overridden: the spec asks for a wider card sitting
- * nearer the top, with a fixed header row over a scrolling body.
+ * Built on the shared `Modal`, so it inherits the focus trap, Escape and
+ * scroll lock rather than reimplementing them. Only the geometry is overridden:
+ * a wider card, sitting nearer the top on desktop, with a fixed header row over
+ * a scrolling body.
  */
 export function SearchOverlay() {
   const { open, setOpen, closeSearch } = useSearch();
@@ -69,8 +69,8 @@ export function SearchOverlay() {
       className={cn(
         'flex flex-col overflow-hidden p-0',
         isMobile
-          ? 'max-h-[88vh] rounded-t-[26px] px-0 pt-0 pb-0'
-          : 'top-[10vh] w-[min(660px,calc(100%-40px))] -translate-y-0 rounded-[20px] border-line-strong p-0',
+          ? 'max-h-[calc(100dvh-32px)] p-0'
+          : 'top-[10vh] w-[min(660px,calc(100%-40px))] -translate-y-0 p-0',
       )}
     >
       {/* Fixed header row */}

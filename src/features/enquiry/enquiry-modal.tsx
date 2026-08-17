@@ -1,6 +1,6 @@
 import { useState, type SubmitEventHandler } from 'react';
 
-import { Button, Input, Modal, ModalClose, SheetHandle, Textarea } from '@/components/ui';
+import { Button, Input, Modal, ModalClose, Textarea } from '@/components/ui';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { useIsMobile } from '@/hooks/use-is-mobile';
 
@@ -71,8 +71,6 @@ export function EnquiryModal() {
 
   return (
     <Modal open={open} onOpenChange={setOpen} title="Enquire about a hoop">
-      {isMobile ? <SheetHandle /> : null}
-
       <div className="mb-5 flex items-start justify-between gap-5">
         <div>
           <Eyebrow className="mb-[10px] text-[10px] tracking-[.28em]">Enquiry</Eyebrow>
