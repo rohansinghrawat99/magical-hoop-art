@@ -47,9 +47,14 @@ export const HERO = {
   headingScript: 'Frame',
   headingTail: 'into a',
   blurb:
-    'Hand-embroidered hoop art for the moments you want to keep — anniversaries, first names, calendar dates, and the thoughts that are hard to say out loud. Made and shipped world-wide.',
+    'Your memories, beautifully stitched by hands. Personalised embroidery hoops created with love to celebrate the people, moments and stories that mean the most to you. Shipping World-wide.',
+  /**
+   * The same words as `blurb`. The design ran a shorter line on mobile, so the
+   * two are still separate keys — shorten this one if the full blurb ever
+   * crowds the phone hero, and the desktop copy stays as it is.
+   */
   blurbMobile:
-    'Hand-embroidered hoop art for the moments you want to keep. Made and shipped world-wide.',
+    'Your memories, beautifully stitched by hands. Personalised embroidery hoops created with love to celebrate the people, moments and stories that mean the most to you. Shipping World-wide.',
   placeholderLabel: 'hero hoop photo',
   placeholderCaption: 'drop image here',
   placeholderDims: '1200 × 1200 · square crop',
@@ -58,12 +63,14 @@ export const HERO = {
 export const COLLECTIONS_SECTION = {
   eyebrow: 'Collections',
   heading: 'Find the one for your occasion',
-  aside: 'Every piece is made to order — colours, names and dates are yours to choose.',
+  aside:
+    'Every piece is made to order - Every element is re-stitched for you, things can be customised as per your occasion. Thread work is finished at the back and sealed, ready to hang straight out of the box.',
 } as const;
 
 export const PROCESS_SECTION = {
   eyebrow: 'How it works',
-  heading: 'Four steps from your idea to the hoop on your wall',
+  /** Names the length of PROCESS_STEPS — keep the two in step. */
+  heading: 'Five steps from your idea to the hoop on your wall',
 } as const;
 
 /** Instagram handle, without the `@`. */

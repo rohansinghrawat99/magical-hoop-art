@@ -20,16 +20,14 @@ export const CATEGORIES: readonly Category[] = [
     id: 'thoughts',
     name: 'Some Thoughts',
     shortName: 'Some Thoughts',
-    blurb:
-      'Long messages, birthday wishes and devotional themes stitched for the person who needs to read them.',
+    blurb: 'Long messages, birthday wishes and devotional themes are done with Hand-Embroidery.',
     placeholderLabel: 'quote hoop',
   },
   {
     id: 'calendar',
     name: 'Calendar Wishes',
     shortName: 'Calendar Wishes',
-    blurb:
-      'The month, the date circled in a tiny heart. Birthdays and anniversaries made permanent.',
+    blurb: 'Save the date for any occasion in Personalised Hand-Embroidered Calendar.',
     placeholderLabel: 'calendar hoop',
   },
   {
@@ -37,14 +35,15 @@ export const CATEGORIES: readonly Category[] = [
     name: 'Wedding, Anniversary & Engagement',
     shortName: 'Wedding',
     blurb:
-      'Mandap scenes, curtain themes and 3D couples — the pieces people gift at every wedding.',
+      'Featuring different kind of wedding themes and beautiful 3D couples—perfect keepsakes for every special occasion.',
     placeholderLabel: 'couple hoop',
   },
   {
     id: 'names',
     name: 'Names & Initials',
     shortName: 'Names & Initials',
-    blurb: 'A name, two initials, a monogram — framed in florals, French knots and pearls.',
+    blurb:
+      'Personalised names, initials and monograms, beautifully framed with embroidered florals.',
     placeholderLabel: 'name hoop',
   },
   {
