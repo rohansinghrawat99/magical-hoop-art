@@ -5,6 +5,7 @@ import {
   Container,
   HoopPlaceholder,
   ImageCarousel,
+  PhotoFrame,
   SectionHeading,
 } from '@/components/ui';
 import { ROUTES, SECTION_IDS } from '@/constants/navigation';
@@ -33,13 +34,8 @@ export function DesktopCollectionsGrid() {
               <CardLink key={category.id} to={ROUTES.category(category.id)}>
                 {/* Square, not the design's 4:3: every photo in the catalogue
                     is square, and `object-cover` in a 4:3 panel cut a quarter
-                    of each piece away — hoops lost their top and bottom.
-
-                    Flex column only for the placeholder, which is the sole
-                    in-flow child — the photo, weave and badge are all
-                    absolute. No padding here: `inset-0` resolves against the
-                    padding box, so any would inset the photo off the edges. */}
-                <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
+                    of each piece away — hoops lost their top and bottom. */}
+                <PhotoFrame context="collectionCard" wellClassName="bg-soft">
                   <StitchBackdrop weave="collection" />
 
                   <ImageCarousel
@@ -48,10 +44,10 @@ export function DesktopCollectionsGrid() {
                     fallback={<HoopPlaceholder context="card" label={category.placeholderLabel} />}
                   />
 
-                  <Badge className="absolute top-[14px] right-4">
+                  <Badge className="absolute top-[10px] right-[10px]">
                     {formatPieceCount(category.count)}
                   </Badge>
-                </div>
+                </PhotoFrame>
 
                 <div className="flex flex-1 flex-col gap-[10px] px-[26px] pt-[26px] pb-7">
                   <h3 className="m-0 font-display text-[27px] leading-[1.15] font-normal">

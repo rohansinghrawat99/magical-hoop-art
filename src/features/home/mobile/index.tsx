@@ -8,6 +8,7 @@ import {
   HoopFrame,
   HoopPlaceholder,
   ImageCarousel,
+  PhotoFrame,
   SectionHeading,
   Stat,
   StepItem,
@@ -102,9 +103,8 @@ export function MobileHome() {
         <div className="flex flex-col gap-4">
           {CATEGORIES_WITH_STATS.map((category) => (
             <CardLink key={category.id} density="mobile" to={ROUTES.category(category.id)}>
-              {/* Square rather than the design's 16:10, and a flex column only
-                  for the placeholder — see the desktop grid for both. */}
-              <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
+              {/* Square rather than the design's 16:10 — see the desktop grid. */}
+              <PhotoFrame context="collectionCard" density="mobile" wellClassName="bg-soft">
                 <StitchBackdrop weave="collectionTight" />
 
                 <ImageCarousel
@@ -115,10 +115,10 @@ export function MobileHome() {
                   }
                 />
 
-                <Badge density="mobile" className="absolute top-3 right-3">
+                <Badge density="mobile" className="absolute top-2 right-2">
                   {formatPieceCount(category.count)}
                 </Badge>
-              </div>
+              </PhotoFrame>
 
               <div className="flex flex-col gap-[7px] px-[18px] pt-[18px] pb-5">
                 <h3 className="m-0 font-display text-[23px] leading-[1.15] font-normal">

@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
-import { AppImage, BackLink, Container, Eyebrow, HoopPlaceholder } from '@/components/ui';
+import {
+  AppImage,
+  BackLink,
+  Container,
+  Eyebrow,
+  HoopPlaceholder,
+  PhotoFrame,
+} from '@/components/ui';
 import { ROUTES } from '@/constants/navigation';
 import { getArtworks } from '@/data/catalogue';
 import { CollectionFilterBar } from '@/features/collections/collection-filter-bar';
@@ -61,11 +68,7 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
                 to={ROUTES.artwork(category.id, artwork.id)}
                 className={cn('group text-ink hover:text-ink', LIFT, LIFT_DISTANCE.artworkCard)}
               >
-                {/* Flex column only for the placeholder, which is the sole
-                    in-flow child — the photo, weave and price strip are all
-                    absolute. No padding here: `inset-0` resolves against the
-                    padding box, so any would inset the photo off the edges. */}
-                <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden rounded-[14px] bg-soft text-center">
+                <PhotoFrame context="artworkCard" wellClassName="bg-soft">
                   <StitchBackdrop weave="card" />
 
                   <AppImage
@@ -88,7 +91,7 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
                     <span>{formatSizeSummary(artwork)}</span>
                     <span className="text-accent">{formatPriceRange(artwork)}</span>
                   </div>
-                </div>
+                </PhotoFrame>
 
                 <div className="px-1 pt-4">
                   <div className="font-display text-[23px] leading-[1.2]">{artwork.title}</div>

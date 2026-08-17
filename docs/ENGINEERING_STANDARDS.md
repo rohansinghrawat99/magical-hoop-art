@@ -55,10 +55,10 @@ frame, the placeholder — the variant is named after the _context_
 (`hero`, `card`, `cardMobile`, `detail`) rather than exposing a dozen loose
 numeric props. `HoopPlaceholder` still carries all seven the design draws.
 
-`HoopFrame` is down to `hero`: the design framed every photo in a hoop, but
-card thumbnails and the piece page now run their photos full-bleed, so only the
-home hero keeps the ring. The one-member `context` is deliberate — a second
-hoop would be another context, not a fork of the component.
+`HoopFrame` is down to `hero`: the design framed every photo in a hoop, but card
+thumbnails and the piece page now show theirs square in `PhotoFrame`'s pink mat,
+so only the home hero keeps the ring. The one-member `context` is deliberate — a
+second hoop would be another context, not a fork of the component.
 
 ## When to make a new component
 

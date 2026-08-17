@@ -6,6 +6,7 @@ import {
   BackLink,
   Eyebrow,
   HoopPlaceholder,
+  PhotoFrame,
   OptionGroup,
   SpecList,
 } from '@/components/ui';
@@ -34,8 +35,12 @@ export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps)
         {category.name}
       </BackLink>
 
-      {/* Flex column only for the placeholder — see the desktop detail page. */}
-      <div className="relative mt-2 flex aspect-square animate-ring-in flex-col items-center justify-center gap-2 overflow-hidden rounded-[20px] bg-soft text-center">
+      <PhotoFrame
+        context="detail"
+        density="mobile"
+        className="mt-2 animate-ring-in"
+        wellClassName="bg-soft"
+      >
         <StitchBackdrop weave="detailTight" />
 
         <AppImage
@@ -45,7 +50,7 @@ export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps)
             <HoopPlaceholder context="detailMobile" label="main photo" caption={artwork.title} />
           }
         />
-      </div>
+      </PhotoFrame>
 
       <div className="mt-7 animate-rise-in">
         <Eyebrow density="mobile" className="mb-[10px]">

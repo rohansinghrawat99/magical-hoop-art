@@ -25,6 +25,7 @@ export {
   type ExternalButtonProps,
   type RouteButtonProps,
 } from './link-button';
+export { PhotoFrame, type PhotoFrameProps } from './photo-frame';
 export { Modal, ModalClose, SheetHandle, type ModalProps } from './modal';
 export { OptionGroup, type OptionGroupProps } from './option-group';
 export { SearchField, type SearchFieldProps } from './search-field';
