@@ -12,7 +12,7 @@ import {
 } from '@/components/ui';
 import { ROUTES } from '@/constants/navigation';
 import { PRICE_NOTE_MOBILE, SIZE_LABEL, STATIC_SPECS } from '@/constants/product';
-import { buildArtworkDescription, formatPriceWithCurrency } from '@/lib/format';
+import { formatPriceWithCurrency } from '@/lib/format';
 import { resolveArtworkImage } from '@/lib/images';
 import type { Artwork, CategoryWithStats } from '@/types/content';
 
@@ -63,11 +63,7 @@ export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps)
           <div className="text-[12px] text-ink-subtle">{PRICE_NOTE_MOBILE}</div>
         </div>
 
-        <p className="m-0 mb-[26px] text-[15px] leading-[1.75] text-pretty text-ink-strong">
-          {buildArtworkDescription(artwork)}
-        </p>
-
-        <div className="mb-[10px] text-[10px] tracking-[.2em] text-ink-label uppercase">
+        <div className="mt-[26px] mb-[10px] text-[10px] tracking-[.2em] text-ink-label uppercase">
           {SIZE_LABEL}
         </div>
         <OptionGroup

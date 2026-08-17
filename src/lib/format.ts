@@ -53,24 +53,6 @@ export function formatSizeSummary(artwork: Artwork): string {
   return allNumeric ? `${measurements.join(' & ')} inch` : measurements.join(' · ');
 }
 
-/**
- * The artwork copy shown on the detail page.
- *
- * Generated from the title and the sizes on offer unless `description` is set
- * on the piece explicitly.
- */
-export function buildArtworkDescription(artwork: Artwork): string {
-  if (artwork.description) return artwork.description;
-
-  const opening = `Hand-embroidered to order — ${artwork.title.toLowerCase()}.`;
-
-  return (
-    `${opening} Every element is re-stitched for you, so names, dates and the ` +
-    `colour of the fabric change to match your occasion. Thread work is finished ` +
-    `at the back and sealed, ready to hang straight out of the box.`
-  );
-}
-
 /** `"3 pieces"` / `"1 piece"` */
 export function formatPieceCount(count: number): string {
   return `${String(count)} ${count === 1 ? 'piece' : 'pieces'}`;

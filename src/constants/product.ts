@@ -7,10 +7,9 @@ import type { Spec } from '@/types/content';
  * `Artwork.options`), and the selected one is prepended at render time.
  */
 export const STATIC_SPECS: readonly Spec[] = [
-  { k: 'Base fabric', v: 'Cotton / satin — your choice' },
+  { k: 'Base fabric', v: 'Cotton' },
   { k: 'Made in', v: '7–10 days' },
   { k: 'Shipping', v: 'World-wide, tracked' },
-  { k: 'Personalisation', v: 'Names, dates, colours included' },
 ] as const;
 
 /** Label above the size selector on the artwork page. */

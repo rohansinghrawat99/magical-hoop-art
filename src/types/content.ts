@@ -65,11 +65,6 @@ export interface Artwork {
    * and collection. Rarely needed — see `src/lib/tags.ts`.
    */
   tags?: readonly string[];
-  /**
-   * Optional hand-written copy. When omitted, `buildArtworkDescription()`
-   * generates it from the title and available sizes.
-   */
-  description?: string;
 }
 
 export interface ProcessStep {

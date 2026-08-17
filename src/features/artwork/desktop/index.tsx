@@ -16,7 +16,7 @@ import {
 import { ROUTES } from '@/constants/navigation';
 import { PRICE_NOTE, SIZE_LABEL, STATIC_SPECS } from '@/constants/product';
 import { useEnquiry } from '@/features/enquiry/use-enquiry';
-import { buildArtworkDescription, formatPriceWithCurrency } from '@/lib/format';
+import { formatPriceWithCurrency } from '@/lib/format';
 import { resolveArtworkImage } from '@/lib/images';
 import type { Artwork, CategoryWithStats } from '@/types/content';
 
@@ -71,11 +71,7 @@ export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProp
               <div className="text-[13px] text-ink-subtle">{PRICE_NOTE}</div>
             </div>
 
-            <p className="m-0 mb-[30px] text-[16px] leading-[1.8] text-pretty text-ink-strong">
-              {buildArtworkDescription(artwork)}
-            </p>
-
-            <SpecList specs={specs} className="mb-8" />
+            <SpecList specs={specs} className="mt-[30px] mb-8" />
 
             <div className="mb-7 grid gap-[10px]">
               <div className="text-[11px] tracking-[.2em] text-ink-label uppercase">

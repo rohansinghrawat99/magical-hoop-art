@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 
 import { ARTWORKS } from '@/constants/artworks';
 import {
-  buildArtworkDescription,
   formatPieceCount,
   formatPrice,
   formatPriceRange,
@@ -84,25 +83,5 @@ describe('formatPieceCount', () => {
     expect(formatPieceCount(1)).toBe('1 piece');
     expect(formatPieceCount(11)).toBe('11 pieces');
     expect(formatPieceCount(0)).toBe('0 pieces');
-  });
-});
-
-describe('buildArtworkDescription', () => {
-  it('generates copy from the title', () => {
-    const text = buildArtworkDescription(twoSizes);
-    expect(text).toContain('engagement theme');
-    expect(text).toContain('re-stitched for you');
-  });
-
-  it('prefers a hand-written description when one is set', () => {
-    expect(buildArtworkDescription({ ...twoSizes, description: 'Bespoke copy.' })).toBe(
-      'Bespoke copy.',
-    );
-  });
-
-  it('never claims a wooden hoop for the handkerchief pieces', () => {
-    for (const artwork of ARTWORKS.filter((a) => /handkerchief/i.test(a.title))) {
-      expect(buildArtworkDescription(artwork)).not.toContain('wooden hoop');
-    }
   });
 });
