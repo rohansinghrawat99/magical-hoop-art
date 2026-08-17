@@ -72,10 +72,11 @@ describe('PhotoFrame', () => {
 
   it('lets a call site dress the mat and the well separately', () => {
     const { mat, well } = renderFrame(
-      <PhotoFrame context="artworkCard" className="mt-2" wellClassName="bg-soft" />,
+      <PhotoFrame context="artworkCard" className="mt-2" wellClassName="bg-white" />,
     );
 
     expect(mat.className).toContain('mt-2');
-    expect(well.className).toContain('bg-soft');
+    expect(well.className).toContain('bg-white');
+    expect(well.className).not.toContain('bg-soft');
   });
 });

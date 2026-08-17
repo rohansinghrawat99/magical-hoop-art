@@ -104,7 +104,7 @@ export function MobileHome() {
           {CATEGORIES_WITH_STATS.map((category) => (
             <CardLink key={category.id} density="mobile" to={ROUTES.category(category.id)}>
               {/* Square rather than the design's 16:10 — see the desktop grid. */}
-              <PhotoFrame context="collectionCard" density="mobile" wellClassName="bg-soft">
+              <PhotoFrame context="collectionCard" density="mobile">
                 <StitchBackdrop weave="collectionTight" />
 
                 <ImageCarousel

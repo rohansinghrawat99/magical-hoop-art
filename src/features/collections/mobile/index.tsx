@@ -56,7 +56,7 @@ export function MobileCategoryPage({ category }: { category: CategoryWithStats }
               to={ROUTES.artwork(category.id, artwork.id)}
               className={cn('text-ink hover:text-ink', LIFT, PRESS.button)}
             >
-              <PhotoFrame context="artworkCard" density="mobile" wellClassName="bg-soft">
+              <PhotoFrame context="artworkCard" density="mobile">
                 <StitchBackdrop weave="cardTight" />
 
                 <AppImage

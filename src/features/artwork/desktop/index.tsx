@@ -44,7 +44,7 @@ export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProp
 
         <div className="grid grid-cols-2 items-start gap-16">
           <div className="relative animate-ring-in">
-            <PhotoFrame context="detail" wellClassName="bg-soft">
+            <PhotoFrame context="detail">
               <StitchBackdrop weave="detail" />
 
               <AppImage

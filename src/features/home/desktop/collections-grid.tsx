@@ -35,7 +35,7 @@ export function DesktopCollectionsGrid() {
                 {/* Square, not the design's 4:3: every photo in the catalogue
                     is square, and `object-cover` in a 4:3 panel cut a quarter
                     of each piece away — hoops lost their top and bottom. */}
-                <PhotoFrame context="collectionCard" wellClassName="bg-soft">
+                <PhotoFrame context="collectionCard">
                   <StitchBackdrop weave="collection" />
 
                   <ImageCarousel

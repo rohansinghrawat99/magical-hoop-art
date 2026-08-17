@@ -35,12 +35,7 @@ export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps)
         {category.name}
       </BackLink>
 
-      <PhotoFrame
-        context="detail"
-        density="mobile"
-        className="mt-2 animate-ring-in"
-        wellClassName="bg-soft"
-      >
+      <PhotoFrame context="detail" density="mobile" className="mt-2 animate-ring-in">
         <StitchBackdrop weave="detailTight" />
 
         <AppImage

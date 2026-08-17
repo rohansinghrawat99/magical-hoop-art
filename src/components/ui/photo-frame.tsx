@@ -45,10 +45,12 @@ const frameVariants = cva(
  * box, so padding on the frame would inset the photo twice over. An inset well
  * puts the frame width in one place and lets the photo fill the well exactly.
  *
- * It is also the flex column the placeholder needs, for a piece with no photo.
+ * It is also the flex column the placeholder needs, for a piece with no photo,
+ * and carries `bg-soft` for it to sit on — every call site wanted that, so it
+ * belongs here rather than being passed in six times.
  */
 const wellVariants = cva(
-  'absolute flex flex-col items-center justify-center overflow-hidden text-center',
+  'absolute flex flex-col items-center justify-center overflow-hidden bg-soft text-center',
   {
     variants: {
       context: { collectionCard: '', artworkCard: '', detail: '' },

@@ -68,7 +68,7 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
                 to={ROUTES.artwork(category.id, artwork.id)}
                 className={cn('group text-ink hover:text-ink', LIFT, LIFT_DISTANCE.artworkCard)}
               >
-                <PhotoFrame context="artworkCard" wellClassName="bg-soft">
+                <PhotoFrame context="artworkCard">
                   <StitchBackdrop weave="card" />
 
                   <AppImage
