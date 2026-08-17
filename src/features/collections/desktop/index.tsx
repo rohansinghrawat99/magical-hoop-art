@@ -82,19 +82,18 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
                       />
                     }
                   />
-
-                  {/* The design faded this to transparent across the whole
-                      strip, which was legible over the pale weave it used to
-                      cover. It now sits on the photograph itself, so the white
-                      holds until past the text and fades only above it. */}
-                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-[linear-gradient(to_top,rgb(255_255_255_/_0.96)_0_72%,transparent)] px-4 py-[14px] text-[12px] tracking-[.14em] uppercase">
-                    <span>{formatSizeSummary(artwork)}</span>
-                    <span className="text-accent">{formatPriceRange(artwork)}</span>
-                  </div>
                 </PhotoFrame>
 
                 <div className="px-1 pt-4">
                   <div className="font-display text-[23px] leading-[1.2]">{artwork.title}</div>
+                  {/* Under the title, as on mobile. The design laid this over
+                      the foot of the photo, which worked when the photo was a
+                      hoop on a pale panel and stopped working once it filled
+                      the frame. */}
+                  <div className="mt-[6px] flex items-center justify-between text-[13px] text-ink-faint">
+                    <span>{formatSizeSummary(artwork)}</span>
+                    <span className="text-accent">{formatPriceRange(artwork)}</span>
+                  </div>
                 </div>
               </Link>
             ))}

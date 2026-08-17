@@ -111,9 +111,10 @@ pixel-diff pass:
 - The weave backdrop stays inside the mat behind those photos even though an
   opaque photo hides it: it is what the placeholder state sits on when a piece
   has no photo yet.
-- The artwork card's price strip fades from `0.96` white and holds until past
-  its text, rather than fading across the full strip. The design's value was
-  legible over the pale weave; over a photograph it was not.
+- **The artwork card's size and price sit under its title**, where the design
+  lays them over the foot of the photo behind a white fade. That fade read well
+  over the pale weave a hooped photo sat on, and badly over a photograph filling
+  the frame. Both trees now put the line under the title.
 
 ## Why not shadcn/ui
 
