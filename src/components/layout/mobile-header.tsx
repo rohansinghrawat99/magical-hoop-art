@@ -1,5 +1,5 @@
 import { Brandmark } from '@/components/layout/brandmark';
-import { SearchIconButton } from '@/features/search/search-trigger';
+import { SearchTrigger } from '@/features/search/search-trigger';
 import { cn } from '@/lib/cn';
 
 export interface MobileHeaderProps {
@@ -7,14 +7,14 @@ export interface MobileHeaderProps {
   onToggleMenu: () => void;
 }
 
-/** The sticky mobile header: brandmark plus the hamburger. */
+/** The sticky mobile header: brandmark, the Search pill, and the hamburger. */
 export function MobileHeader({ menuOpen, onToggleMenu }: MobileHeaderProps) {
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between border-b border-line-header bg-veil-strong px-5 py-[14px] backdrop-blur-[16px]">
       <Brandmark density="mobile" />
 
-      <div className="flex items-center">
-        <SearchIconButton />
+      <div className="flex items-center gap-2">
+        <SearchTrigger density="mobile" />
 
         <button
           type="button"
