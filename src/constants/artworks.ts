@@ -232,21 +232,21 @@ export const ARTWORKS: readonly Artwork[] = [
 
   // --- Wedding, Anniversary & Engagement ---------------------------------
   {
-    id: 'engagement-theme',
-    categoryId: 'wedding',
-    title: 'Engagement Theme',
-    options: [
-      { label: '10 inch ring', price: 200 },
-      { label: '12 inch ring', price: 250 },
-    ],
-  },
-  {
     id: 'curtain-theme-with-3d-couple',
     categoryId: 'wedding',
     title: 'Curtain Theme with 3D Couple',
     options: [
       { label: '10 inch ring', price: 150 },
       { label: '12 inch ring', price: 175 },
+    ],
+  },
+  {
+    id: 'engagement-theme',
+    categoryId: 'wedding',
+    title: 'Engagement Theme',
+    options: [
+      { label: '10 inch ring', price: 200 },
+      { label: '12 inch ring', price: 250 },
     ],
   },
   {
