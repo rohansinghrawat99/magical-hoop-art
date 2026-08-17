@@ -45,12 +45,18 @@ const frameVariants = cva(
  * box, so padding on the frame would inset the photo twice over. An inset well
  * puts the frame width in one place and lets the photo fill the well exactly.
  *
+ * The white band between the mat and the photo is the well's border, not more
+ * inset: a border sits inside the well's own box, and `inset-0` resolves
+ * against the padding box, so the photo lands inside it without any further
+ * arithmetic. The hoop had the same white gap between its gold rim and the
+ * fabric, which is where this comes from.
+ *
  * It is also the flex column the placeholder needs, for a piece with no photo,
  * and carries `bg-soft` for it to sit on — every call site wanted that, so it
  * belongs here rather than being passed in six times.
  */
 const wellVariants = cva(
-  'absolute flex flex-col items-center justify-center overflow-hidden bg-soft text-center',
+  'absolute flex flex-col items-center justify-center overflow-hidden border-white bg-soft text-center',
   {
     variants: {
       context: { collectionCard: '', artworkCard: '', detail: '' },
@@ -60,17 +66,33 @@ const wellVariants = cva(
       {
         context: 'collectionCard',
         density: 'desktop',
-        class: 'inset-[14px] gap-[6px] rounded-[10px]',
+        class: 'inset-[8px] gap-[6px] rounded-[12px] border-[14px]',
       },
       {
         context: 'collectionCard',
         density: 'mobile',
-        class: 'inset-[10px] gap-[6px] rounded-[8px]',
+        class: 'inset-[5px] gap-[6px] rounded-[10px] border-[10px]',
       },
-      { context: 'artworkCard', density: 'desktop', class: 'inset-3 gap-[6px] rounded-[8px]' },
-      { context: 'artworkCard', density: 'mobile', class: 'inset-2 gap-1 rounded-[6px]' },
-      { context: 'detail', density: 'desktop', class: 'inset-4 gap-[10px] rounded-[12px]' },
-      { context: 'detail', density: 'mobile', class: 'inset-3 gap-2 rounded-[10px]' },
+      {
+        context: 'artworkCard',
+        density: 'desktop',
+        class: 'inset-[7px] gap-[6px] rounded-[10px] border-[12px]',
+      },
+      {
+        context: 'artworkCard',
+        density: 'mobile',
+        class: 'inset-[4px] gap-1 rounded-[8px] border-[8px]',
+      },
+      {
+        context: 'detail',
+        density: 'desktop',
+        class: 'inset-[9px] gap-[10px] rounded-[14px] border-[16px]',
+      },
+      {
+        context: 'detail',
+        density: 'mobile',
+        class: 'inset-[6px] gap-2 rounded-[12px] border-[11px]',
+      },
     ],
     defaultVariants: { context: 'artworkCard', density: 'desktop' },
   },

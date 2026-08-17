@@ -100,9 +100,11 @@ pixel-diff pass:
 - **Photos are square in a pink mat, not round in a hoop.** The design puts
   every photo inside an embroidery hoop — a gradient ring on the hero and piece
   page, a gold border on both card thumbnails. Only the home hero still does.
-  Card thumbnails and the piece page show the photo square and near-full-bleed,
-  so the work reads as large as the layout allows, with the hoop's gold gradient
-  kept as a mat around it. That mat is `PhotoFrame`; the ring is `HoopFrame`.
+  Card thumbnails and the piece page show the photo square, framed the way the
+  hoop framed it: a lean rim of the gold gradient, then a wider white mat, then
+  the photo. That frame is `PhotoFrame`; the ring is `HoopFrame`. The white is
+  the well's border and the pink is its inset — see the note in the component
+  before changing either.
 - **The collection card's photo panel is square**, where the design draws 4:3
   on desktop and 16:10 on mobile. Every photo in the catalogue is square, and
   the framed hoop used to sit comfortably inside those wider panels. A

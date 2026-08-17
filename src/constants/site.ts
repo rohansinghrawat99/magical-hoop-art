@@ -44,7 +44,7 @@ export const HERO = {
   eyebrow: 'Handmade · Made to order',
   headingLead: 'Stories stitched',
   headingLeadMobile: 'Stories stitched into a',
-  headingScript: 'frame',
+  headingScript: 'Frame',
   headingTail: 'into a',
   blurb:
     'Hand-embroidered hoop art for the moments you want to keep — anniversaries, first names, calendar dates, and the thoughts that are hard to say out loud. Made and shipped world-wide.',

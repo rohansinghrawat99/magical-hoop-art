@@ -49,6 +49,22 @@ describe('PhotoFrame', () => {
     }
   });
 
+  /**
+   * The white band between the mat and the photo. It is the well's border, so
+   * the photo's `inset-0` lands inside it — anything that turns this into
+   * padding would push the photo in twice.
+   */
+  it('separates the mat from the photo with a white band', () => {
+    for (const context of CONTEXTS) {
+      for (const density of DENSITIES) {
+        const { well } = renderFrame(<PhotoFrame context={context} density={density} />);
+
+        expect(well.className).toContain('border-white');
+        expect(well.className).toMatch(/border-\[\d+px\]/);
+      }
+    }
+  });
+
   it('clips the photo to the well, inside the mat', () => {
     const { mat, well } = renderFrame(<PhotoFrame context="detail" />);
 
