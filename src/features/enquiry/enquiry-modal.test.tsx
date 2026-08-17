@@ -8,14 +8,21 @@ import { useEnquiry } from '@/features/enquiry/use-enquiry';
 import { renderWithProviders } from '@/test/render';
 import { DESKTOP_WIDTH, setViewport } from '@/test/viewport';
 
-function Harness() {
+const PIECE = {
+  subject: 'Blue Lehenga Couple — Wedding',
+  sizes: ['10 inch ring', '12 inch ring'],
+  size: '12 inch ring',
+};
+
+/** `general` opens the form the way the header and footer buttons do. */
+function Harness({ general = false }: { general?: boolean }) {
   const { openEnquiry } = useEnquiry();
 
   return (
     <>
       <Button
         onClick={() => {
-          openEnquiry('Blue Lehenga Couple — Wedding');
+          openEnquiry(general ? undefined : PIECE);
         }}
       >
         Enquire
@@ -23,6 +30,12 @@ function Harness() {
       <EnquiryModal />
     </>
   );
+}
+
+/** Open the form and wait for it. */
+async function openForm() {
+  await userEvent.click(screen.getByRole('button', { name: 'Enquire' }));
+  await screen.findByRole('dialog');
 }
 
 describe('EnquiryModal', () => {
@@ -88,6 +101,53 @@ describe('EnquiryModal', () => {
     await waitFor(() => {
       expect(screen.getAllByRole('alert')).toHaveLength(2);
     });
+  });
+
+  it('arrives showing the size the visitor was already looking at', async () => {
+    renderWithProviders(<Harness />);
+    await openForm();
+
+    expect(screen.getByRole('radio', { name: '12 inch ring' })).toHaveAttribute('data-state', 'on');
+    expect(screen.getByRole('radio', { name: '10 inch ring' })).toHaveAttribute(
+      'data-state',
+      'off',
+    );
+  });
+
+  it('offers no size selector for a general enquiry', async () => {
+    renderWithProviders(<Harness general />);
+    await openForm();
+
+    expect(screen.queryByRole('radio')).not.toBeInTheDocument();
+    expect(screen.getByText('Custom hoop art')).toBeInTheDocument();
+  });
+
+  it('sends the size that is lit when the enquiry goes out', async () => {
+    vi.stubEnv('VITE_WHATSAPP_NUMBER', '61412345678');
+    const open = vi.fn();
+    vi.stubGlobal('open', open);
+
+    renderWithProviders(<Harness />);
+    await openForm();
+
+    // Change the mind that was made up on the piece page.
+    await userEvent.click(screen.getByRole('radio', { name: '10 inch ring' }));
+
+    await userEvent.type(screen.getByLabelText('Your name'), 'Priya');
+    await userEvent.type(screen.getByLabelText('Mobile or email'), 'priya@example.com');
+    await userEvent.type(screen.getByLabelText('Occasion and date needed'), 'Anniversary, Feb');
+    await userEvent.click(screen.getByRole('button', { name: 'Send enquiry' }));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    const text = decodeURIComponent(String(open.mock.calls[0]?.[0]));
+    expect(text).toContain('Size: 10 inch ring');
+    expect(text).not.toContain('12 inch ring');
+
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
   });
 
   it('opens a prefilled WhatsApp conversation on a valid submission', async () => {

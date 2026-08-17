@@ -25,6 +25,20 @@ describe('buildWhatsAppUrl', () => {
     expect(text).toContain('Navy base with pearls');
   });
 
+  it('names the chosen size, so the reply does not have to ask', () => {
+    const text = decodeURIComponent(
+      buildWhatsAppUrl({ ...fields, size: '12 inch ring' }).split('?text=')[1] ?? '',
+    );
+
+    expect(text).toContain('Size: 12 inch ring');
+  });
+
+  it('leaves the size out of a general enquiry, which has no size to name', () => {
+    const text = decodeURIComponent(buildWhatsAppUrl(fields).split('?text=')[1] ?? '');
+
+    expect(text).not.toContain('Size:');
+  });
+
   it('percent-encodes characters that would break the URL', () => {
     const url = buildWhatsAppUrl(fields);
     // The subject contains an em dash and an ampersand.

@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui';
+import type { EnquiryPiece } from '@/features/enquiry/enquiry-context';
 import { useEnquiry } from '@/features/enquiry/use-enquiry';
 
 export interface MobileBottomBarProps {
@@ -6,8 +7,8 @@ export interface MobileBottomBarProps {
   label: string;
   /** The prominent line beneath it. */
   value: string;
-  /** Subject passed to the enquiry form when the button is pressed. */
-  enquirySubject?: string;
+  /** The piece the enquiry form should open on, with its selected size. */
+  enquiryPiece?: EnquiryPiece;
 }
 
 /**
@@ -17,7 +18,7 @@ export interface MobileBottomBarProps {
  * collection on a category page, the piece and price on an artwork page.
  * Padded for the home indicator via `env(safe-area-inset-bottom)`.
  */
-export function MobileBottomBar({ label, value, enquirySubject }: MobileBottomBarProps) {
+export function MobileBottomBar({ label, value, enquiryPiece }: MobileBottomBarProps) {
   const { openEnquiry } = useEnquiry();
 
   return (
@@ -33,7 +34,7 @@ export function MobileBottomBar({ label, value, enquirySubject }: MobileBottomBa
         size="compact"
         className="shrink-0"
         onClick={() => {
-          openEnquiry(enquirySubject);
+          openEnquiry(enquiryPiece);
         }}
       >
         Enquire

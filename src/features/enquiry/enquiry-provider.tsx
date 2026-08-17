@@ -1,6 +1,11 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
 
-import { DEFAULT_SUBJECT, EnquiryContext, type EnquiryContextValue } from './enquiry-context';
+import {
+  DEFAULT_PIECE,
+  EnquiryContext,
+  type EnquiryContextValue,
+  type EnquiryPiece,
+} from './enquiry-context';
 
 /**
  * Holds the enquiry modal's state.
@@ -11,10 +16,10 @@ import { DEFAULT_SUBJECT, EnquiryContext, type EnquiryContextValue } from './enq
  */
 export function EnquiryProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const [subject, setSubject] = useState(DEFAULT_SUBJECT);
+  const [piece, setPiece] = useState<EnquiryPiece>(DEFAULT_PIECE);
 
-  const openEnquiry = useCallback((next: string = DEFAULT_SUBJECT) => {
-    setSubject(next);
+  const openEnquiry = useCallback((next: EnquiryPiece = DEFAULT_PIECE) => {
+    setPiece(next);
     setOpen(true);
   }, []);
 
@@ -23,8 +28,8 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo<EnquiryContextValue>(
-    () => ({ open, subject, openEnquiry, closeEnquiry, setOpen }),
-    [open, subject, openEnquiry, closeEnquiry],
+    () => ({ open, piece, openEnquiry, closeEnquiry, setOpen }),
+    [open, piece, openEnquiry, closeEnquiry],
   );
 
   return <EnquiryContext.Provider value={value}>{children}</EnquiryContext.Provider>;

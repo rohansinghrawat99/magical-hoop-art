@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
 import {
   AppImage,
@@ -23,13 +21,20 @@ import type { Artwork, CategoryWithStats } from '@/types/content';
 export interface DesktopArtworkPageProps {
   artwork: Artwork;
   category: CategoryWithStats;
+  /** Selected size. Owned by the route — see the note there. */
+  size: string;
+  onSizeChange: (size: string) => void;
 }
 
-export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProps) {
+export function DesktopArtworkPage({
+  artwork,
+  category,
+  size,
+  onSizeChange,
+}: DesktopArtworkPageProps) {
   const { openEnquiry } = useEnquiry();
   const options = artwork.options;
-  const [sizeLabel, setSizeLabel] = useState(options[0].label);
-  const selected = options.find((o) => o.label === sizeLabel) ?? options[0];
+  const selected = options.find((o) => o.label === size) ?? options[0];
   const sizeLabels = options.map((o) => o.label);
 
   const specs = [{ k: SIZE_LABEL, v: selected.label }, ...STATIC_SPECS];
@@ -80,8 +85,8 @@ export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProp
               <OptionGroup
                 label={SIZE_LABEL}
                 options={sizeLabels}
-                value={sizeLabel}
-                onValueChange={setSizeLabel}
+                value={size}
+                onValueChange={onSizeChange}
               />
             </div>
 
@@ -91,7 +96,7 @@ export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProp
                 size="wide"
                 className="min-w-[200px] flex-1"
                 onClick={() => {
-                  openEnquiry(subject);
+                  openEnquiry({ subject, sizes: sizeLabels, size });
                 }}
               >
                 Enquire about this piece

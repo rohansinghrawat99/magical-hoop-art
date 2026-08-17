@@ -5,6 +5,7 @@ import { PetalField } from '@/components/decor/petal-field';
 import { DesktopFooter } from '@/components/layout/desktop-footer';
 import { DesktopHeader } from '@/components/layout/desktop-header';
 import { MobileBottomBar } from '@/components/layout/mobile-bottom-bar';
+import type { EnquiryPiece } from '@/features/enquiry/enquiry-context';
 import { MobileFooter } from '@/components/layout/mobile-footer';
 import { MobileHeader } from '@/components/layout/mobile-header';
 import { MobileMenu } from '@/components/layout/mobile-menu';
@@ -16,7 +17,7 @@ import { useIsMobile } from '@/hooks/use-is-mobile';
 export interface BottomBarContent {
   label: string;
   value: string;
-  enquirySubject?: string;
+  enquiryPiece?: EnquiryPiece;
 }
 
 export interface ShellProps {
@@ -70,9 +71,9 @@ export function Shell({ children, bottomBar }: ShellProps) {
           <MobileBottomBar
             label={bottomBar.label}
             value={bottomBar.value}
-            {...(bottomBar.enquirySubject !== undefined
-              ? { enquirySubject: bottomBar.enquirySubject }
-              : {})}
+            {...(bottomBar.enquiryPiece === undefined
+              ? {}
+              : { enquiryPiece: bottomBar.enquiryPiece })}
           />
 
           <MobileMenu open={menuOpen} onOpenChange={setMenuOpen} />

@@ -7,6 +7,8 @@ export interface EnquiryFields {
   message: string;
   /** The piece being asked about, or "Custom hoop art". */
   subject: string;
+  /** The chosen size. Absent on a general enquiry, which has no size. */
+  size?: string;
 }
 
 /** `true` once a WhatsApp number has been configured. */
@@ -30,6 +32,7 @@ export function buildWhatsAppUrl(fields: EnquiryFields): string {
 
   const lines = [
     `Hi! I'd like to enquire about: ${fields.subject}`,
+    ...(fields.size === undefined ? [] : [`Size: ${fields.size}`]),
     '',
     `Name: ${fields.name}`,
     `Contact: ${fields.contact}`,

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
 import {
   AppImage,
@@ -19,12 +17,19 @@ import type { Artwork, CategoryWithStats } from '@/types/content';
 export interface MobileArtworkPageProps {
   artwork: Artwork;
   category: CategoryWithStats;
+  /** Selected size. Owned by the route — see the note there. */
+  size: string;
+  onSizeChange: (size: string) => void;
 }
 
-export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps) {
+export function MobileArtworkPage({
+  artwork,
+  category,
+  size,
+  onSizeChange,
+}: MobileArtworkPageProps) {
   const options = artwork.options;
-  const [sizeLabel, setSizeLabel] = useState(options[0].label);
-  const selected = options.find((o) => o.label === sizeLabel) ?? options[0];
+  const selected = options.find((o) => o.label === size) ?? options[0];
   const sizeLabels = options.map((o) => o.label);
 
   const specs = [{ k: SIZE_LABEL, v: selected.label }, ...STATIC_SPECS];
@@ -70,8 +75,8 @@ export function MobileArtworkPage({ artwork, category }: MobileArtworkPageProps)
           density="mobile"
           label={SIZE_LABEL}
           options={sizeLabels}
-          value={sizeLabel}
-          onValueChange={setSizeLabel}
+          value={size}
+          onValueChange={onSizeChange}
           className="mb-[26px]"
         />
 
