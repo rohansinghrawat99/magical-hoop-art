@@ -26,9 +26,9 @@ const frameVariants = cva(
         /** Home page, one per collection. The card itself clips the corners. */
         collectionCard: '',
         /** The grid on a collection page. */
-        artworkCard: 'rounded-[14px]',
+        artworkCard: 'rounded-[18px]',
         /** The piece's own page. */
-        detail: 'rounded-[20px]',
+        detail: 'rounded-[26px]',
       },
       /** Only the well changes with density; the mat's gradient does not. */
       density: { desktop: '', mobile: '' },
@@ -44,6 +44,11 @@ const frameVariants = cva(
  * photo fills its parent with `inset-0`, which resolves against the *padding*
  * box, so padding on the frame would inset the photo twice over. An inset well
  * puts the frame width in one place and lets the photo fill the well exactly.
+ *
+ * The well's radius is the band's width plus the rounding wanted on the photo.
+ * A border's inner corner radius is the outer radius minus the border width,
+ * clamped at zero, so a radius smaller than the band leaves the photo with
+ * square corners inside a curved mat.
  *
  * The white band between the mat and the photo is the well's border, not more
  * inset: a border sits inside the well's own box, and `inset-0` resolves
@@ -66,32 +71,32 @@ const wellVariants = cva(
       {
         context: 'collectionCard',
         density: 'desktop',
-        class: 'inset-[8px] gap-[6px] rounded-[12px] border-[14px]',
+        class: 'inset-[8px] gap-[6px] rounded-[22px] border-[14px]',
       },
       {
         context: 'collectionCard',
         density: 'mobile',
-        class: 'inset-[5px] gap-[6px] rounded-[10px] border-[10px]',
+        class: 'inset-[5px] gap-[6px] rounded-[16px] border-[10px]',
       },
       {
         context: 'artworkCard',
         density: 'desktop',
-        class: 'inset-[7px] gap-[6px] rounded-[10px] border-[12px]',
+        class: 'inset-[7px] gap-[6px] rounded-[20px] border-[12px]',
       },
       {
         context: 'artworkCard',
         density: 'mobile',
-        class: 'inset-[4px] gap-1 rounded-[8px] border-[8px]',
+        class: 'inset-[4px] gap-1 rounded-[13px] border-[8px]',
       },
       {
         context: 'detail',
         density: 'desktop',
-        class: 'inset-[9px] gap-[10px] rounded-[14px] border-[16px]',
+        class: 'inset-[9px] gap-[10px] rounded-[26px] border-[16px]',
       },
       {
         context: 'detail',
         density: 'mobile',
-        class: 'inset-[6px] gap-2 rounded-[12px] border-[11px]',
+        class: 'inset-[6px] gap-2 rounded-[18px] border-[11px]',
       },
     ],
     defaultVariants: { context: 'artworkCard', density: 'desktop' },

@@ -65,6 +65,23 @@ describe('PhotoFrame', () => {
     }
   });
 
+  /**
+   * A border's inner corner radius is its outer radius minus its width, floored
+   * at zero — so a well rounded less than its band is wide leaves the photo
+   * with square corners inside a curved mat.
+   */
+  it('rounds the well by more than the band is wide, so the photo is not squared off', () => {
+    for (const context of CONTEXTS) {
+      for (const density of DENSITIES) {
+        const { well } = renderFrame(<PhotoFrame context={context} density={density} />);
+        const radius = Number(/rounded-\[(\d+)px\]/.exec(well.className)?.[1]);
+        const band = Number(/border-\[(\d+)px\]/.exec(well.className)?.[1]);
+
+        expect(radius).toBeGreaterThan(band);
+      }
+    }
+  });
+
   it('clips the photo to the well, inside the mat', () => {
     const { mat, well } = renderFrame(<PhotoFrame context="detail" />);
 
