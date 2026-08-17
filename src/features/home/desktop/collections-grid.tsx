@@ -1,18 +1,18 @@
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
 import {
-  AppImage,
   Badge,
   CardLink,
   Container,
   HoopFrame,
   HoopPlaceholder,
+  ImageCarousel,
   SectionHeading,
 } from '@/components/ui';
 import { ROUTES, SECTION_IDS } from '@/constants/navigation';
 import { COLLECTIONS_SECTION } from '@/constants/site';
 import { CATEGORIES_WITH_STATS, getArtworkIds } from '@/data/catalogue';
 import { formatPieceCount } from '@/lib/format';
-import { resolveCategoryImage } from '@/lib/images';
+import { resolveCategoryImages } from '@/lib/images';
 
 export function DesktopCollectionsGrid() {
   return (
@@ -28,7 +28,7 @@ export function DesktopCollectionsGrid() {
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[26px] pb-[70px]">
           {CATEGORIES_WITH_STATS.map((category) => {
-            const cover = resolveCategoryImage(category.id, getArtworkIds(category.id));
+            const covers = resolveCategoryImages(category.id, getArtworkIds(category.id));
 
             return (
               <CardLink key={category.id} to={ROUTES.category(category.id)}>
@@ -36,8 +36,8 @@ export function DesktopCollectionsGrid() {
                   <StitchBackdrop weave="collection" />
 
                   <HoopFrame context="categoryCard" density="desktop">
-                    <AppImage
-                      src={cover}
+                    <ImageCarousel
+                      images={covers}
                       alt=""
                       fallback={
                         <HoopPlaceholder context="card" label={category.placeholderLabel} />

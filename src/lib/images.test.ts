@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { ARTWORKS } from '@/constants/artworks';
-import { resolveArtworkImage, resolveCategoryImage, resolveHeroImage } from '@/lib/images';
+import { resolveArtworkImage, resolveCategoryImages, resolveHeroImage } from '@/lib/images';
 import { getArtworkIds } from '@/data/catalogue';
 import { CATEGORIES } from '@/constants/categories';
 
@@ -30,18 +30,31 @@ describe('resolveArtworkImage', () => {
   });
 });
 
-describe('resolveCategoryImage', () => {
-  it('finds a cover photo for every collection', () => {
+describe('resolveCategoryImages', () => {
+  it('resolves a photo for every piece in every collection', () => {
     for (const category of CATEGORIES) {
-      expect(
-        resolveCategoryImage(category.id, getArtworkIds(category.id)),
-        category.id,
-      ).not.toBeNull();
+      const ids = getArtworkIds(category.id);
+
+      // The card cycles through all of them, so a missing photo is a gap in
+      // the rotation rather than a placeholder nobody would notice.
+      expect(resolveCategoryImages(category.id, ids), category.id).toHaveLength(ids.length);
     }
   });
 
+  it('keeps catalogue order', () => {
+    const ids = getArtworkIds('wedding');
+    const [first, second] = resolveCategoryImages('wedding', ids);
+
+    expect(first).toBe(resolveArtworkImage('wedding', ids[0] ?? ''));
+    expect(second).toBe(resolveArtworkImage('wedding', ids[1] ?? ''));
+  });
+
+  it('omits pieces that have no photo yet, rather than leaving a blank slide', () => {
+    expect(resolveCategoryImages('wedding', ['does-not-exist'])).toEqual([]);
+  });
+
   it('handles an empty collection', () => {
-    expect(resolveCategoryImage('wedding', [])).toBeNull();
+    expect(resolveCategoryImages('wedding', [])).toEqual([]);
   });
 });
 
