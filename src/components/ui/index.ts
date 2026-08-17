@@ -18,6 +18,7 @@ export { Eyebrow, type EyebrowProps } from './eyebrow';
 export { Input, Textarea, type InputProps, type TextareaProps } from './field';
 export { HoopFrame, type HoopFrameProps } from './hoop-frame';
 export { HoopPlaceholder, type HoopPlaceholderProps } from './hoop-placeholder';
+export { ImageCarousel, type ImageCarouselProps } from './image-carousel';
 export {
   ExternalButton,
   RouteButton,

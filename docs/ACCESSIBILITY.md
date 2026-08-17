@@ -23,19 +23,19 @@ colour.
 Every primitive in `components/ui/` owns its own accessibility behaviour, so
 feature code cannot forget it.
 
-| Concern        | How it is handled                                                                       |
-| -------------- | --------------------------------------------------------------------------------------- |
-| Focus ring     | Global `:focus-visible` rule, accent, 2px, 3px offset                                   |
-| Skip link      | `.skip-link` in the shell, revealed on focus, targets `#main`                           |
-| Modal          | Radix Dialog: focus trap, Escape, scroll lock, `aria-modal`, portal                     |
-| Focus restore  | Explicit `onCloseAutoFocus` in `Modal` — see below                                      |
-| Size selector  | Radix ToggleGroup: radiogroup semantics, arrow-key roving tabindex                      |
-| Form fields    | Visually-hidden `<label>`, `aria-invalid`, `aria-describedby`, `role="alert"` on errors |
-| Spec table     | `<dl>` / `<dt>` / `<dd>`, so values are read as belonging to their labels               |
-| Process steps  | `<ol>` / `<li>`                                                                         |
-| Decoration     | Petal field, hoop rings, weave backdrops and arrows are `aria-hidden`                   |
-| Touch targets  | Mobile controls are ≥44px; the bottom bar button is 48px                                |
-| Reduced motion | All durations collapsed; the petal field is not rendered at all                         |
+| Concern        | How it is handled                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Focus ring     | Global `:focus-visible` rule, accent, 2px, 3px offset                                                                     |
+| Skip link      | `.skip-link` in the shell, revealed on focus, targets `#main`                                                             |
+| Modal          | Radix Dialog: focus trap, Escape, scroll lock, `aria-modal`, portal                                                       |
+| Focus restore  | Explicit `onCloseAutoFocus` in `Modal` — see below                                                                        |
+| Size selector  | Radix ToggleGroup: radiogroup semantics, arrow-key roving tabindex                                                        |
+| Form fields    | Visually-hidden `<label>`, `aria-invalid`, `aria-describedby`, `role="alert"` on errors                                   |
+| Spec table     | `<dl>` / `<dt>` / `<dd>`, so values are read as belonging to their labels                                                 |
+| Process steps  | `<ol>` / `<li>`                                                                                                           |
+| Decoration     | Petal field, hoop rings, weave backdrops and arrows are `aria-hidden`                                                     |
+| Touch targets  | Mobile controls are ≥44px; the bottom bar button is 48px                                                                  |
+| Reduced motion | All durations collapsed; the petal field is not rendered, and collection cards hold their first photo instead of rotating |
 
 ### Focus restore
 
@@ -53,9 +53,10 @@ that distinction matters.
 - The design's form shows placeholders only. Placeholders are not labels — they
   vanish on input and are not reliably announced. Each field carries a
   visually-hidden `<label>`, so the visual is unchanged.
-- Artwork photos take the piece's title as alt text. Collection cover photos are
-  `alt=""` — the card's heading already names the collection, so alt text would
-  be duplication.
+- Artwork photos take the piece's title as alt text. The photos rotating on a
+  collection card are `alt=""` — the card's heading already names the
+  collection, and alt text that changed every few seconds would announce a
+  different piece depending only on when the visitor's cursor happened to land.
 - Placeholder hoops are text, not images, so they are read naturally.
 - The brandmark's ring-and-dot is `aria-hidden`; the wordmark beside it carries
   the name, and the link is labelled "Magical Hoop Art — home".

@@ -7,6 +7,7 @@ import {
   Eyebrow,
   HoopFrame,
   HoopPlaceholder,
+  ImageCarousel,
   SectionHeading,
   Stat,
   StepItem,
@@ -18,7 +19,7 @@ import { CATEGORIES_WITH_STATS, getArtworkIds, TOTAL_ARTWORKS } from '@/data/cat
 import { useEnquiry } from '@/features/enquiry/use-enquiry';
 import { useSmoothScrollTo } from '@/hooks/use-smooth-scroll-to';
 import { formatPieceCount } from '@/lib/format';
-import { resolveCategoryImage, resolveHeroImage } from '@/lib/images';
+import { resolveCategoryImages, resolveHeroImage } from '@/lib/images';
 
 export function MobileHome() {
   const { openEnquiry } = useEnquiry();
@@ -105,8 +106,8 @@ export function MobileHome() {
                 <StitchBackdrop weave="collectionTight" />
 
                 <HoopFrame context="categoryCard" density="mobile">
-                  <AppImage
-                    src={resolveCategoryImage(category.id, getArtworkIds(category.id))}
+                  <ImageCarousel
+                    images={resolveCategoryImages(category.id, getArtworkIds(category.id))}
                     alt=""
                     fallback={
                       <HoopPlaceholder context="cardMobile" label={category.placeholderLabel} />
