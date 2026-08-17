@@ -31,11 +31,15 @@ export function DesktopCollectionsGrid() {
 
             return (
               <CardLink key={category.id} to={ROUTES.category(category.id)}>
-                {/* Flex column only for the placeholder, which is the sole
+                {/* Square, not the design's 4:3: every photo in the catalogue
+                    is square, and `object-cover` in a 4:3 panel cut a quarter
+                    of each piece away — hoops lost their top and bottom.
+
+                    Flex column only for the placeholder, which is the sole
                     in-flow child — the photo, weave and badge are all
                     absolute. No padding here: `inset-0` resolves against the
                     padding box, so any would inset the photo off the edges. */}
-                <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
+                <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
                   <StitchBackdrop weave="collection" />
 
                   <ImageCarousel

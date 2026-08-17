@@ -102,6 +102,11 @@ pixel-diff pass:
   a gold border on both card thumbnails. Only the home hero still does. Card
   thumbnails and the piece page fill their panel edge to edge, so the work is
   shown as large as the layout allows.
+- **The collection card's photo panel is square**, where the design draws 4:3
+  on desktop and 16:10 on mobile. Every photo in the catalogue is square, and
+  the framed hoop used to sit comfortably inside those wider panels. A
+  full-bleed square photo in a 4:3 panel loses a quarter of the piece to
+  `object-cover`, and 38% in a 16:10 one. Panels match their photos instead.
 - The weave backdrop stays behind those photos even though an opaque photo
   hides it: it is what the placeholder state sits on when a piece has no
   photo yet.
