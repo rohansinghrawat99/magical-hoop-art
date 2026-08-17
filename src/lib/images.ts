@@ -53,18 +53,25 @@ export function resolveArtworkImage(categoryId: string, artworkId: string): stri
 }
 
 /**
- * The photo representing a whole collection on the home page: whichever piece
- * in that collection has a photo first, in catalogue order.
+ * Every photo in a collection, in catalogue order, skipping pieces that have
+ * none yet.
+ *
+ * The home page's collection card cycles through the whole set, so this is a
+ * list rather than a single cover. Pieces without a photo are omitted rather
+ * than left as gaps — a blank slide mid-rotation reads as a broken image.
  */
-export function resolveCategoryImage(
+export function resolveCategoryImages(
   categoryId: string,
   artworkIds: readonly string[],
-): string | null {
+): readonly string[] {
+  const urls: string[] = [];
+
   for (const artworkId of artworkIds) {
     const url = resolveArtworkImage(categoryId, artworkId);
-    if (url) return url;
+    if (url) urls.push(url);
   }
-  return null;
+
+  return urls;
 }
 
 /** The hero image, from `src/assets/hero/hero-hoop.*`. */

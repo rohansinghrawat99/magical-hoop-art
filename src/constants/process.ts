@@ -20,6 +20,6 @@ export const PROCESS_STEPS: readonly ProcessStep[] = [
   {
     n: '04',
     title: 'Wrapped & shipped',
-    body: 'Gift-wrapped with a handwritten note and shipped Australia-wide.',
+    body: 'Gift-wrapped with a handwritten note and shipped world-wide.',
   },
 ] as const;

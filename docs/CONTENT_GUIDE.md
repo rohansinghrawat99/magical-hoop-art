@@ -90,8 +90,11 @@ Nothing else is needed — no imports, no config. A piece with no photo keeps
 showing its placeholder hoop, so a half-finished catalogue still looks
 deliberate.
 
-A collection's card on the home page uses the first photo it can find among its
-pieces.
+A collection's card on the home page cycles through **every** photo in that
+collection, in catalogue order — so the order pieces appear in
+`src/constants/artworks.ts` is the order they appear on the card, and the first
+one is what a visitor sees when the page opens. Pieces without a photo are
+skipped rather than shown as a gap. Nothing needs to be nominated as a cover.
 
 ### Optimising
 

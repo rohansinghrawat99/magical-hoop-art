@@ -75,9 +75,19 @@ const hoopVariants = cva('relative aspect-square rounded-full', {
   defaultVariants: { context: 'artworkCard', density: 'desktop' },
 });
 
+/**
+ * The disc is sized `w-full aspect-square`, never `size-full`. WebKit resolves
+ * a percentage height against its parent's *border* box, so `height: 100%`
+ * inside the padded hoop above makes the disc taller than the ring's content
+ * box; it then overflows, stretches the hoop, and both circles render as
+ * ovals on iOS Safari. Deriving the height from the disc's own width keeps it
+ * square in every engine, and the hoop is square, so the geometry is identical.
+ */
+const HOOP_DISC = 'w-full aspect-square';
+
 /** The inner disc of a gradient-ring hoop, where the photo or caption sits. */
 const hoopFillVariants = cva(
-  'relative flex size-full flex-col items-center justify-center overflow-hidden rounded-full text-center',
+  `relative flex ${HOOP_DISC} flex-col items-center justify-center overflow-hidden rounded-full text-center`,
   {
     variants: {
       fill: {
@@ -132,7 +142,7 @@ export const HoopFrame = forwardRef<HTMLDivElement, HoopFrameProps>(function Hoo
       ) : (
         <div
           className={cn(
-            'relative flex size-full flex-col items-center justify-center gap-[6px]',
+            `relative flex ${HOOP_DISC} flex-col items-center justify-center gap-[6px]`,
             'overflow-hidden rounded-full text-center',
             fillClassName,
           )}

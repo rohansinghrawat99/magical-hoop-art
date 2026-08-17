@@ -69,6 +69,15 @@ export const ARTWORKS: readonly Artwork[] = [
 
   // --- Some Thoughts -----------------------------------------------------
   {
+    id: 'mothers-day-hoop',
+    categoryId: 'thoughts',
+    title: "Mother's Day Hoop",
+    options: [
+      { label: '10 inch ring', price: 250 },
+      { label: '12 inch ring', price: 300 },
+    ],
+  },
+  {
     id: 'customised-thoughts-on-handkerchief',
     categoryId: 'thoughts',
     title: 'Customised thoughts on Handkerchief',
@@ -155,26 +164,8 @@ export const ARTWORKS: readonly Artwork[] = [
       { label: '12 inch ring', price: 275 },
     ],
   },
-  {
-    id: 'mothers-day-hoop',
-    categoryId: 'thoughts',
-    title: "Mother's Day Hoop",
-    options: [
-      { label: '10 inch ring', price: 250 },
-      { label: '12 inch ring', price: 300 },
-    ],
-  },
 
   // --- Calendar Wishes ---------------------------------------------------
-  {
-    id: 'calendar-with-star-heart',
-    categoryId: 'calendar',
-    title: 'Calendar With Star-Heart',
-    options: [
-      { label: '10 inch ring', price: 120 },
-      { label: '12 inch ring', price: 150 },
-    ],
-  },
   {
     id: 'calendar-with-florals-only',
     categoryId: 'calendar',
@@ -182,6 +173,15 @@ export const ARTWORKS: readonly Artwork[] = [
     options: [
       { label: '10 inch ring', price: 150 },
       { label: '12 inch ring', price: 180 },
+    ],
+  },
+  {
+    id: 'calendar-with-star-heart',
+    categoryId: 'calendar',
+    title: 'Calendar With Star-Heart',
+    options: [
+      { label: '10 inch ring', price: 120 },
+      { label: '12 inch ring', price: 150 },
     ],
   },
   {
@@ -305,12 +305,6 @@ export const ARTWORKS: readonly Artwork[] = [
 
   // --- Names & Initials --------------------------------------------------
   {
-    id: 'customised-initial-on-handkerchief',
-    categoryId: 'names',
-    title: 'Customised Initial on Handkerchief',
-    options: [{ label: '12 × 12 inch', price: 50 }],
-  },
-  {
     id: 'single-name-and-florals',
     categoryId: 'names',
     title: 'Single Name and Florals',
@@ -318,6 +312,12 @@ export const ARTWORKS: readonly Artwork[] = [
       { label: '10 inch ring', price: 120 },
       { label: '12 inch ring', price: 150 },
     ],
+  },
+  {
+    id: 'customised-initial-on-handkerchief',
+    categoryId: 'names',
+    title: 'Customised Initial on Handkerchief',
+    options: [{ label: '12 × 12 inch', price: 50 }],
   },
   {
     id: 'vertical-names-and-florals',
