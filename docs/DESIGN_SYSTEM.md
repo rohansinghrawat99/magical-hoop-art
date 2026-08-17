@@ -92,6 +92,23 @@ pnpm dev
 Open `design-reference/Magical Hoop Art.dc.html` beside the dev server at
 1440 / 1280 / 860 / 859 / 390 px and compare.
 
+### Departures from the design
+
+Deliberate, owner-requested, and **not** drift to be corrected on the next
+pixel-diff pass:
+
+- **Photos are full-bleed, not framed in a hoop.** The design puts every
+  photo inside an embroidery hoop — a gradient ring on the hero and piece page,
+  a gold border on both card thumbnails. Only the home hero still does. Card
+  thumbnails and the piece page fill their panel edge to edge, so the work is
+  shown as large as the layout allows.
+- The weave backdrop stays behind those photos even though an opaque photo
+  hides it: it is what the placeholder state sits on when a piece has no
+  photo yet.
+- The artwork card's price strip fades from `0.96` white and holds until past
+  its text, rather than fading across the full strip. The design's value was
+  legible over the pale weave; over a photograph it was not.
+
 ## Why not shadcn/ui
 
 shadcn covers ~6 of the ~20 primitives here, and for `Button`, `Input`,

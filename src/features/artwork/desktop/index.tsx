@@ -7,7 +7,6 @@ import {
   Button,
   Container,
   Eyebrow,
-  HoopFrame,
   HoopPlaceholder,
   OptionGroup,
   RouteButton,
@@ -44,18 +43,20 @@ export function DesktopArtworkPage({ artwork, category }: DesktopArtworkPageProp
 
         <div className="grid grid-cols-2 items-start gap-16">
           <div className="relative animate-ring-in">
-            <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[20px] bg-soft">
+            {/* Flex column only for the placeholder, which is the sole in-flow
+                child — the photo and weave are both absolute. No padding here:
+                `inset-0` resolves against the padding box, so any would inset
+                the photo off the edges. */}
+            <div className="relative flex aspect-square flex-col items-center justify-center gap-[10px] overflow-hidden rounded-[20px] bg-soft text-center">
               <StitchBackdrop weave="detail" />
 
-              <HoopFrame context="detail" density="desktop">
-                <AppImage
-                  src={resolveArtworkImage(category.id, artwork.id)}
-                  alt={artwork.title}
-                  fallback={
-                    <HoopPlaceholder context="detail" label="main photo" caption={artwork.title} />
-                  }
-                />
-              </HoopFrame>
+              <AppImage
+                src={resolveArtworkImage(category.id, artwork.id)}
+                alt={artwork.title}
+                fallback={
+                  <HoopPlaceholder context="detail" label="main photo" caption={artwork.title} />
+                }
+              />
             </div>
           </div>
 

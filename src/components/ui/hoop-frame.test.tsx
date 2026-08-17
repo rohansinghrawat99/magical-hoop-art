@@ -12,7 +12,7 @@ function renderHoop(ui: React.ReactElement) {
 
 describe('HoopFrame', () => {
   it('keeps the ring square in every context', () => {
-    for (const context of ['hero', 'categoryCard', 'artworkCard', 'detail'] as const) {
+    for (const context of ['hero'] as const) {
       const { hoop } = renderHoop(<HoopFrame context={context} density="mobile" />);
       expect(hoop.className).toContain('aspect-square');
     }
@@ -26,7 +26,7 @@ describe('HoopFrame', () => {
    * width instead. See the note in hoop-frame.tsx.
    */
   it('sizes the inner disc from its own width, never a percentage height', () => {
-    for (const context of ['hero', 'categoryCard', 'artworkCard', 'detail'] as const) {
+    for (const context of ['hero'] as const) {
       for (const density of ['desktop', 'mobile'] as const) {
         const { disc } = renderHoop(<HoopFrame context={context} density={density} />);
         expect(disc.className).toContain('w-full');

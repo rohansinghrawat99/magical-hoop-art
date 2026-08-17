@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
-import { AppImage, BackLink, Eyebrow, HoopFrame, HoopPlaceholder } from '@/components/ui';
+import { AppImage, BackLink, Eyebrow, HoopPlaceholder } from '@/components/ui';
 import { ROUTES } from '@/constants/navigation';
 import { getArtworks } from '@/data/catalogue';
 import { CollectionFilterBar } from '@/features/collections/collection-filter-bar';
@@ -56,16 +56,15 @@ export function MobileCategoryPage({ category }: { category: CategoryWithStats }
               to={ROUTES.artwork(category.id, artwork.id)}
               className={cn('text-ink hover:text-ink', LIFT, PRESS.button)}
             >
-              <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[14px] bg-soft">
+              {/* Flex column only for the placeholder — see the desktop grid. */}
+              <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden rounded-[14px] bg-soft text-center">
                 <StitchBackdrop weave="cardTight" />
 
-                <HoopFrame context="artworkCard" density="mobile">
-                  <AppImage
-                    src={resolveArtworkImage(category.id, artwork.id)}
-                    alt={artwork.title}
-                    fallback={<HoopPlaceholder context="cardMobile" caption={artwork.title} />}
-                  />
-                </HoopFrame>
+                <AppImage
+                  src={resolveArtworkImage(category.id, artwork.id)}
+                  alt={artwork.title}
+                  fallback={<HoopPlaceholder context="cardMobile" caption={artwork.title} />}
+                />
               </div>
 
               <div className="px-[2px] pt-[10px]">

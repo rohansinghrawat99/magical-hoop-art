@@ -1,14 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { StitchBackdrop } from '@/components/decor/stitch-backdrop';
-import {
-  AppImage,
-  BackLink,
-  Container,
-  Eyebrow,
-  HoopFrame,
-  HoopPlaceholder,
-} from '@/components/ui';
+import { AppImage, BackLink, Container, Eyebrow, HoopPlaceholder } from '@/components/ui';
 import { ROUTES } from '@/constants/navigation';
 import { getArtworks } from '@/data/catalogue';
 import { CollectionFilterBar } from '@/features/collections/collection-filter-bar';
@@ -68,24 +61,30 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
                 to={ROUTES.artwork(category.id, artwork.id)}
                 className={cn('group text-ink hover:text-ink', LIFT, LIFT_DISTANCE.artworkCard)}
               >
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[14px] bg-soft">
+                {/* Flex column only for the placeholder, which is the sole
+                    in-flow child — the photo, weave and price strip are all
+                    absolute. No padding here: `inset-0` resolves against the
+                    padding box, so any would inset the photo off the edges. */}
+                <div className="relative flex aspect-square flex-col items-center justify-center gap-[6px] overflow-hidden rounded-[14px] bg-soft text-center">
                   <StitchBackdrop weave="card" />
 
-                  <HoopFrame context="artworkCard" density="desktop">
-                    <AppImage
-                      src={resolveArtworkImage(category.id, artwork.id)}
-                      alt={artwork.title}
-                      fallback={
-                        <HoopPlaceholder
-                          context="artworkCard"
-                          label="photo"
-                          caption={artwork.title}
-                        />
-                      }
-                    />
-                  </HoopFrame>
+                  <AppImage
+                    src={resolveArtworkImage(category.id, artwork.id)}
+                    alt={artwork.title}
+                    fallback={
+                      <HoopPlaceholder
+                        context="artworkCard"
+                        label="photo"
+                        caption={artwork.title}
+                      />
+                    }
+                  />
 
-                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-[linear-gradient(to_top,rgb(255_255_255_/_0.94),transparent)] px-4 py-[14px] text-[12px] tracking-[.14em] uppercase">
+                  {/* The design faded this to transparent across the whole
+                      strip, which was legible over the pale weave it used to
+                      cover. It now sits on the photograph itself, so the white
+                      holds until past the text and fades only above it. */}
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-[linear-gradient(to_top,rgb(255_255_255_/_0.96)_0_72%,transparent)] px-4 py-[14px] text-[12px] tracking-[.14em] uppercase">
                     <span>{formatSizeSummary(artwork)}</span>
                     <span className="text-accent">{formatPriceRange(artwork)}</span>
                   </div>

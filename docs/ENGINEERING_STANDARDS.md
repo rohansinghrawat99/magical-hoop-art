@@ -52,9 +52,13 @@ side by side in one `cva` table, where they can be compared.
 
 Where the design specifies genuinely different treatments per usage — the hoop
 frame, the placeholder — the variant is named after the _context_
-(`hero`, `categoryCard`, `artworkCard`, `detail`) rather than exposing a dozen
-loose numeric props. There are eight hoop treatments in the design and the
-component encodes exactly those eight.
+(`hero`, `card`, `cardMobile`, `detail`) rather than exposing a dozen loose
+numeric props. `HoopPlaceholder` still carries all seven the design draws.
+
+`HoopFrame` is down to `hero`: the design framed every photo in a hoop, but
+card thumbnails and the piece page now run their photos full-bleed, so only the
+home hero keeps the ring. The one-member `context` is deliberate — a second
+hoop would be another context, not a fork of the component.
 
 ## When to make a new component
 

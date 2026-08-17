@@ -3,7 +3,6 @@ import {
   Badge,
   CardLink,
   Container,
-  HoopFrame,
   HoopPlaceholder,
   ImageCarousel,
   SectionHeading,
@@ -32,18 +31,18 @@ export function DesktopCollectionsGrid() {
 
             return (
               <CardLink key={category.id} to={ROUTES.category(category.id)}>
-                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-soft">
+                {/* Flex column only for the placeholder, which is the sole
+                    in-flow child — the photo, weave and badge are all
+                    absolute. No padding here: `inset-0` resolves against the
+                    padding box, so any would inset the photo off the edges. */}
+                <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
                   <StitchBackdrop weave="collection" />
 
-                  <HoopFrame context="categoryCard" density="desktop">
-                    <ImageCarousel
-                      images={covers}
-                      alt=""
-                      fallback={
-                        <HoopPlaceholder context="card" label={category.placeholderLabel} />
-                      }
-                    />
-                  </HoopFrame>
+                  <ImageCarousel
+                    images={covers}
+                    alt=""
+                    fallback={<HoopPlaceholder context="card" label={category.placeholderLabel} />}
+                  />
 
                   <Badge className="absolute top-[14px] right-4">
                     {formatPieceCount(category.count)}

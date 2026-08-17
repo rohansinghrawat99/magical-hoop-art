@@ -102,18 +102,17 @@ export function MobileHome() {
         <div className="flex flex-col gap-4">
           {CATEGORIES_WITH_STATS.map((category) => (
             <CardLink key={category.id} density="mobile" to={ROUTES.category(category.id)}>
-              <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-soft">
+              {/* Flex column only for the placeholder — see the desktop grid. */}
+              <div className="relative flex aspect-[16/10] flex-col items-center justify-center gap-[6px] overflow-hidden bg-soft text-center">
                 <StitchBackdrop weave="collectionTight" />
 
-                <HoopFrame context="categoryCard" density="mobile">
-                  <ImageCarousel
-                    images={resolveCategoryImages(category.id, getArtworkIds(category.id))}
-                    alt=""
-                    fallback={
-                      <HoopPlaceholder context="cardMobile" label={category.placeholderLabel} />
-                    }
-                  />
-                </HoopFrame>
+                <ImageCarousel
+                  images={resolveCategoryImages(category.id, getArtworkIds(category.id))}
+                  alt=""
+                  fallback={
+                    <HoopPlaceholder context="cardMobile" label={category.placeholderLabel} />
+                  }
+                />
 
                 <Badge density="mobile" className="absolute top-3 right-3">
                   {formatPieceCount(category.count)}
