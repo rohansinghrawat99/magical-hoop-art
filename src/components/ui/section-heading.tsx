@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 export interface SectionHeadingProps {
   eyebrow: string;
   heading: string;
-  /** Supporting copy shown beside the heading on desktop, beneath it on mobile. */
+  /** Supporting copy shown beneath the heading, on both densities. */
   aside?: string;
   density?: 'desktop' | 'mobile';
   /** Draw the hairline the design puts under the collections header. */
@@ -63,10 +63,14 @@ export function SectionHeading({
         >
           {heading}
         </h2>
+        {/* Beneath the heading, matching mobile — the design ran it alongside,
+            but the copy grew past the column that layout gave it. */}
+        {aside ? (
+          <p className="mt-[14px] mb-0 max-w-[78ch] text-[14px] leading-[1.6] text-ink-dim">
+            {aside}
+          </p>
+        ) : null}
       </div>
-      {aside ? (
-        <p className="m-0 max-w-[30ch] text-[14px] leading-[1.6] text-ink-dim">{aside}</p>
-      ) : null}
       {children}
     </div>
   );

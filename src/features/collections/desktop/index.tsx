@@ -39,12 +39,12 @@ export function DesktopCategoryPage({ category }: { category: CategoryWithStats 
           All collections
         </BackLink>
 
-        <header className="mb-11 flex animate-rise-in flex-wrap items-end justify-between gap-[30px] border-b border-line pb-[26px]">
-          <div>
-            <Eyebrow className="mb-3">{formatPieceCount(category.count)}</Eyebrow>
-            <h1 className="m-0 font-display text-page leading-none font-light">{category.name}</h1>
-          </div>
-          <p className="m-0 max-w-[38ch] text-[15px] leading-[1.7] text-ink-muted">
+        {/* The blurb sits under the name, as it does on mobile — the design ran
+            it in a column beside the heading, which the longer copy outgrew. */}
+        <header className="mb-11 animate-rise-in border-b border-line pb-[26px]">
+          <Eyebrow className="mb-3">{formatPieceCount(category.count)}</Eyebrow>
+          <h1 className="m-0 font-display text-page leading-none font-light">{category.name}</h1>
+          <p className="mt-[14px] mb-0 max-w-[78ch] text-[15px] leading-[1.7] text-ink-muted">
             {category.blurb}
           </p>
         </header>
