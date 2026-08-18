@@ -21,7 +21,7 @@ export const PROCESS_STEPS: readonly ProcessStep[] = [
   {
     n: '03',
     title: 'Handcrafted with Love',
-    body: 'Your hoop is carefully hand-embroidered with beautiful ribbonwork, beads and pearl detailing.',
+    body: 'Your hoop is carefully hand-embroidered with colorful threads, beads and pearl detailing.',
   },
   {
     n: '04',

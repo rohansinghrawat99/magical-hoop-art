@@ -74,7 +74,7 @@ export function getArtworkIds(categoryId: CategoryId): readonly string[] {
 /** Total pieces across all collections — the hero's headline figure. */
 export const TOTAL_ARTWORKS = ARTWORKS.length;
 
-/** Lowest price anywhere, for the "Custom hoop from $X" line. */
+/** Lowest price anywhere, for any "from $X" line. */
 export const LOWEST_PRICE = ARTWORKS.reduce(
   (min, piece) => Math.min(min, lowestPrice(piece)),
   Number.POSITIVE_INFINITY,
