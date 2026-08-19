@@ -16,5 +16,5 @@ export const STATIC_SPECS: readonly Spec[] = [
 export const SIZE_LABEL = 'Size';
 
 /** Reassurance line beside the price. */
-export const PRICE_NOTE = 'incl. hoop, packaging & gift note';
-export const PRICE_NOTE_MOBILE = 'incl. hoop & gift note';
+export const PRICE_NOTE = 'shipping included';
+export const PRICE_NOTE_MOBILE = 'shipping included';

@@ -13,7 +13,7 @@ object to the list, in the section for its collection:
 ```ts
 {
   id: 'rose-gold-initials',      // the title, lowercased and hyphenated
-  categoryId: 'names',           // photo-frames | thoughts | calendar | wedding | names | decor
+  categoryId: 'names',           // photo-frames | thoughts | calendar | wedding | names | decor | baby
   title: 'Rose Gold Initials',
   options: [
     { label: '10 inch ring', price: 180 },   // price is a number: no $, no quotes
@@ -122,7 +122,7 @@ back to macOS `sips` for the HEVC-encoded files it cannot.
 Folder names are matched loosely, so `PhotoFrames`, `photo-frames` and
 `Name&Initials` all land in the right collection.
 
-The current 42 photos come to about 13 MB.
+The current 47 photos come to about 15 MB.
 
 ### The photo is shown in a circle
 

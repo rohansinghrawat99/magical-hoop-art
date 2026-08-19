@@ -64,8 +64,9 @@ const CONCEPTS: Record<string, readonly string[]> = {
   anniversary: ['anniversary'],
   couple: ['couple', 'couples'],
   birthday: ['birthday'],
-  mother: ['mom', 'mother', 'mothers', 'mum'],
+  mother: ['mom', 'mother', 'mothers', 'motherhood', 'mum'],
   friendship: ['friendship', 'friends'],
+  baby: ['baby', 'babies', 'newborn', 'birth', 'sibling', 'siblings', 'pram', 'parents'],
 
   photo: ['photo', 'photos', 'photoframe', 'photograph', 'photographs', 'memory', 'frame'],
   calendar: ['calendar', 'date', 'dates'],

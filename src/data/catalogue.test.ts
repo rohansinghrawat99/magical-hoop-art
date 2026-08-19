@@ -70,7 +70,7 @@ describe('derived stats', () => {
     expect(TOTAL_ARTWORKS).toBe(ARTWORKS.length);
   });
 
-  it('holds all six collections in the order supplied', () => {
+  it('holds all seven collections in the order supplied', () => {
     expect(CATEGORIES_WITH_STATS.map((c) => c.id)).toEqual([
       'photo-frames',
       'thoughts',
@@ -78,6 +78,7 @@ describe('derived stats', () => {
       'wedding',
       'names',
       'decor',
+      'baby',
     ]);
   });
 
