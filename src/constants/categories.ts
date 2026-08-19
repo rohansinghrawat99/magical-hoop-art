@@ -1,7 +1,7 @@
 import type { Category } from '@/types/content';
 
 /**
- * The six collections, in the order they appear on the home page.
+ * The seven collections, in the order they appear on the home page.
  *
  * Piece counts and "from" prices are NOT declared here — they are derived from
  * `artworks.ts` by the selectors in `src/data/`, so they stay correct
@@ -52,5 +52,12 @@ export const CATEGORIES: readonly Category[] = [
     shortName: 'Home Decor',
     blurb: 'Devotional pieces for the prayer corner, entryway and living room wall.',
     placeholderLabel: 'decor hoop',
+  },
+  {
+    id: 'baby',
+    name: 'Baby & Motherhood',
+    shortName: 'Baby & Motherhood',
+    blurb: 'Personalised baby hoops, beautifully stitched with their special birth details.',
+    placeholderLabel: 'baby hoop',
   },
 ] as const;

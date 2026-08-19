@@ -7,7 +7,8 @@
  */
 
 /** Category ids are the URL segment: /collections/:categoryId */
-export type CategoryId = 'photo-frames' | 'thoughts' | 'calendar' | 'wedding' | 'names' | 'decor';
+export type CategoryId =
+  'photo-frames' | 'thoughts' | 'calendar' | 'wedding' | 'names' | 'decor' | 'baby';
 
 export interface Category {
   id: CategoryId;

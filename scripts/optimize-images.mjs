@@ -69,6 +69,9 @@ const FOLDER_ALIASES = {
   names: 'names',
   homedecor: 'decor',
   decor: 'decor',
+  babyandmotherhood: 'baby',
+  'baby&motherhood': 'baby',
+  baby: 'baby',
   hero: 'hero',
 };
 

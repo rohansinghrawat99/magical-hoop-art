@@ -393,4 +393,51 @@ export const ARTWORKS: readonly Artwork[] = [
       { label: '12 inch ring', price: 450 },
     ],
   },
+
+  // --- Baby & Motherhood -------------------------------------------------
+  {
+    id: 'baby-boy-with-birth-details',
+    categoryId: 'baby',
+    title: 'Baby Boy with birth details',
+    options: [
+      { label: '10 inch ring', price: 175 },
+      { label: '12 inch ring', price: 200 },
+    ],
+  },
+  {
+    id: 'baby-girl-with-birth-details',
+    categoryId: 'baby',
+    title: 'Baby Girl with birth details',
+    options: [
+      { label: '10 inch ring', price: 175 },
+      { label: '12 inch ring', price: 200 },
+    ],
+  },
+  {
+    id: 'sibling-hoop',
+    categoryId: 'baby',
+    title: 'Sibling Hoop',
+    options: [
+      { label: '10 inch ring', price: 130 },
+      { label: '12 inch ring', price: 150 },
+    ],
+  },
+  {
+    id: 'pram-theme',
+    categoryId: 'baby',
+    title: 'Pram Theme',
+    options: [
+      { label: '10 inch ring', price: 200 },
+      { label: '12 inch ring', price: 230 },
+    ],
+  },
+  {
+    id: 'parents-to-be-theme',
+    categoryId: 'baby',
+    title: 'Parents to be Theme',
+    options: [
+      { label: '10 inch ring', price: 200 },
+      { label: '12 inch ring', price: 250 },
+    ],
+  },
 ] as const;
